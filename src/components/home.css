@@ -27,22 +27,17 @@
   text-align: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 500px) {
   .video-carousel {
-    display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100%;
+    overflow: hidden;
   }
 
   .video-item {
-    margin: 10px 0;
+    margin: 0;
+    height: 100vh;
     width: 100%;
-    max-width: 400px; /* Limit the maximum width of the videos */
-  }
-
-  .video-item iframe {
-    width: 100%;
-    height: 100%;
   }
 
   .video-item.active {
