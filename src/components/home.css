@@ -1,0 +1,31 @@
+section {
+}
+
+.video-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.video-item {
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+  width: 80vw;
+  height: 450px;
+}
+
+.video-item iframe {
+  width: 400px; /* Adjust the width of the videos */
+  height: 600px; /* Adjust the height of the videos */ /* Apply blur effect to non-active videos */
+}
+
+.video-item.active {
+  transform: scale(1.2); /* Increase the size of the active video */
+}
+
+.controls {
+  text-align: center;
+}
