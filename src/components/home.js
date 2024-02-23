@@ -4,11 +4,7 @@ import "./home.css";
 
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [playing, setPlaying] = useState(false); // State to manage play/pause
-
-  useEffect(() => {
-    setPlaying(true); // Start playing the active video when component mounts
-  }, [currentVideoIndex]); // Update playing state when current video index changes
+  const [playing, setPlaying] = useState(true); // Auto play the active video
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -29,8 +25,21 @@ const Home = () => {
     };
   }, [currentVideoIndex]);
 
+  useEffect(() => {
+    const videoItem = document.getElementById(
+      `video-item-${currentVideoIndex}`
+    );
+    if (videoItem) {
+      videoItem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [currentVideoIndex]);
+
   const handleVideoClick = () => {
-    setPlaying(!playing); // Toggle playing state
+    setPlaying(!playing); // Toggle play/pause
+  };
+
+  const scrollToVideo = (index) => {
+    setCurrentVideoIndex(index);
   };
 
   return (
@@ -39,6 +48,7 @@ const Home = () => {
         {videoUrls.map((url, index) => (
           <div
             key={index}
+            id={`video-item-${index}`}
             className={`video-item ${
               index === currentVideoIndex ? "active" : ""
             }`}
@@ -46,12 +56,12 @@ const Home = () => {
           >
             <ReactPlayer
               url={url}
-              playing={index === currentVideoIndex && playing} // Set playing based on index and playing state
+              playing={index === currentVideoIndex && playing}
               controls={false}
               loop
               width="100%"
               height="100%"
-              onClick={handleVideoClick} // Add onClick handler to toggle play/pause
+              onClick={handleVideoClick}
             />
           </div>
         ))}
@@ -59,16 +69,33 @@ const Home = () => {
 
       <div className="controls">
         <button
-          onClick={() => setCurrentVideoIndex((prevIndex) => prevIndex - 1)}
-          disabled={currentVideoIndex === 0}
+          onClick={() =>
+            setCurrentVideoIndex(
+              currentVideoIndex === 0
+                ? videoUrls.length - 1
+                : currentVideoIndex - 1
+            )
+          }
         >
           Previous
         </button>
         <button
-          onClick={() => setCurrentVideoIndex((prevIndex) => prevIndex + 1)}
-          disabled={currentVideoIndex === videoUrls.length - 1}
+          onClick={() =>
+            setCurrentVideoIndex(
+              currentVideoIndex === videoUrls.length - 1
+                ? 0
+                : currentVideoIndex + 1
+            )
+          }
         >
           Next
+        </button>
+      </div>
+
+      <div className="scroll-buttons">
+        <button onClick={() => scrollToVideo(0)}>Up</button>
+        <button onClick={() => scrollToVideo(videoUrls.length - 1)}>
+          Down
         </button>
       </div>
     </section>
