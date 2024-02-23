@@ -12,10 +12,10 @@ const Home = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "ArrowUp" && currentVideoIndex > 0) {
+      if (e.key === "ArrowLeft" && currentVideoIndex > 0) {
         setCurrentVideoIndex((prevIndex) => prevIndex - 1);
       } else if (
-        e.key === "ArrowDown" &&
+        e.key === "ArrowRight" &&
         currentVideoIndex < videoUrls.length - 1
       ) {
         setCurrentVideoIndex((prevIndex) => prevIndex + 1);
@@ -28,6 +28,10 @@ const Home = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentVideoIndex]);
+
+  const handleVideoClick = () => {
+    setPlaying(!playing); // Toggle playing state
+  };
 
   return (
     <section>
@@ -47,6 +51,7 @@ const Home = () => {
               loop
               width="100%"
               height="100%"
+              onClick={handleVideoClick} // Add onClick handler to toggle play/pause
             />
           </div>
         ))}
