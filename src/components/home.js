@@ -5,6 +5,7 @@ import "./home.css";
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [playing, setPlaying] = useState(true); // Auto play the active video
+  const [likes, setLikes] = useState(Array(videoUrls.length).fill(false));
 
   useEffect(() => {
     // Auto play the first video when the component mounts
@@ -47,6 +48,14 @@ const Home = () => {
     setCurrentVideoIndex(index);
   };
 
+  const toggleLike = (index) => {
+    setLikes((prevLikes) => {
+      const newLikes = [...prevLikes];
+      newLikes[index] = !newLikes[index];
+      return newLikes;
+    });
+  };
+
   return (
     <section>
       <div className="video-carousel">
@@ -72,6 +81,15 @@ const Home = () => {
                 }
               }}
             />
+            <button
+              className={`like-button ${likes[index] ? "liked" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleLike(index);
+              }}
+            >
+              {likes[index] ? "Liked" : "Like"}
+            </button>
           </div>
         ))}
       </div>
@@ -102,7 +120,17 @@ const Home = () => {
       </div>
 
       <div className="scroll-buttons">
-        <button onClick={() => scrollToVideo(0)}>Up</button>
+        <button
+          onClick={() =>
+            scrollToVideo(
+              currentVideoIndex === 0
+                ? videoUrls.length - 1
+                : currentVideoIndex - 1
+            )
+          }
+        >
+          Up
+        </button>
         <button
           onClick={() =>
             scrollToVideo(
