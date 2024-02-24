@@ -57,7 +57,7 @@ const Home = () => {
   };
 
   return (
-    <section>
+    <section className="section">
       <div className="video-carousel">
         {videoUrls.map((url, index) => (
           <div

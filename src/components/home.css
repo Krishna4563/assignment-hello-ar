@@ -1,11 +1,16 @@
+.section {
+  overflow-x: hidden;
+}
+
 .video-carousel {
   display: flex;
-  overflow-x: hidden; /* Hide overflow to create carousel effect */
-  width: 100%; /* Occupy full width */
+  overflow-x: hidden;
+  width: 100%;
+  margin: 40px;
 }
 
 .video-item {
-  flex: 0 0 auto; /* Set flex to auto so items can shrink if necessary */
+  flex: 0 0 auto;
   margin: 0 10px;
   transition: transform 0.3s ease;
   width: 80vw;
@@ -16,13 +21,13 @@
 }
 
 .video-item {
-  position: relative; /* Ensure the button is positioned relative to this container */
+  position: relative;
 }
 
 .like-button {
-  position: absolute; /* Position the button absolutely */
-  top: 10px; /* Adjust top position as needed */
-  right: 10px; /* Adjust right position as needed */
+  position: absolute;
+  top: 10px;
+  right: 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -30,7 +35,7 @@
   color: #000;
   font-weight: bold;
   transition: color 0.3s ease;
-  z-index: 1; /* Ensure the button appears above the video */
+  z-index: 1;
 }
 
 .like-button.liked {
@@ -44,7 +49,7 @@
 
 .controls {
   text-align: center;
-  margin: 0 auto; /* Center controls */
+  margin: 0 auto;
 }
 
 .scroll-buttons {
@@ -66,6 +71,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .section {
+    margin: 0;
+  }
+
   .video-carousel {
     flex-direction: column;
     height: 100%;
