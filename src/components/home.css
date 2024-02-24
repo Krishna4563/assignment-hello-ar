@@ -39,11 +39,11 @@
   color: #f00;
 }
 
-.video-item iframe {
+.iframe-container iframe {
   width: 100%;
   height: 100%;
   position: relative;
-  border: 1px solid lawngreen; /* Ensure the iframe is positioned relatively for absolute positioning of the like button */
+  border: 1px solid red; /* Ensure the iframe is positioned relatively for absolute positioning of the like button */
 }
 
 .controls {
