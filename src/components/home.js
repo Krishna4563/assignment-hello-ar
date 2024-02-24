@@ -7,6 +7,11 @@ const Home = () => {
   const [playing, setPlaying] = useState(true); // Auto play the active video
 
   useEffect(() => {
+    // Auto play the first video when the component mounts
+    setPlaying(true);
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "ArrowLeft" && currentVideoIndex > 0) {
         setCurrentVideoIndex((prevIndex) => prevIndex - 1);
@@ -61,7 +66,11 @@ const Home = () => {
               loop
               width="100%"
               height="100%"
-              onClick={handleVideoClick}
+              onClick={() => {
+                if (window.innerWidth <= 500) {
+                  handleVideoClick();
+                }
+              }}
             />
           </div>
         ))}
@@ -103,6 +112,10 @@ const Home = () => {
 };
 
 const videoUrls = [
+  "https://player.vimeo.com/video/453600755",
+  "https://player.vimeo.com/video/453600755",
+  "https://player.vimeo.com/video/453600755",
+  "https://player.vimeo.com/video/453600755",
   "https://player.vimeo.com/video/453600755",
   "https://player.vimeo.com/video/453600755",
   "https://player.vimeo.com/video/453600755",

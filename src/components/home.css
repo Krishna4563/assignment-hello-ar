@@ -1,16 +1,18 @@
 .video-carousel {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 100vw;
+  overflow-x: hidden; /* Hide overflow to create carousel effect */
+  width: 100%; /* Occupy full width */
 }
 
 .video-item {
+  flex: 0 0 auto; /* Set flex to auto so items can shrink if necessary */
   margin: 0 10px;
   transition: transform 0.3s ease;
   width: 80vw;
-  height: 450px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-item iframe {
@@ -18,40 +20,41 @@
   height: 100%;
 }
 
-.video-item.active {
-  transform: scale(1.2);
-}
-
 .controls {
   text-align: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 10rem;
+  margin: 0 auto; /* Center controls */
 }
 
 .scroll-buttons {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.scroll-buttons button {
-  margin-bottom: 10px;
+  display: none;
 }
 
 @media screen and (max-width: 500px) {
   .video-carousel {
     flex-direction: column;
     height: 100%;
-    overflow: hidden;
   }
 
   .video-item {
     margin: 0;
     height: 100vh;
     width: 100%;
+  }
+
+  .controls {
+    margin: 0;
+  }
+
+  .scroll-buttons {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scroll-buttons button {
+    margin-bottom: 10px;
   }
 }
