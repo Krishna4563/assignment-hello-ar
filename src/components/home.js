@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
 import "./home.css";
 
 const Home = () => {
@@ -68,28 +67,25 @@ const Home = () => {
             }`}
             onClick={() => setCurrentVideoIndex(index)}
           >
-            <ReactPlayer
-              url={url}
-              playing={index === currentVideoIndex && playing}
-              controls={false}
-              loop
-              width="100%"
-              height="100%"
-              onClick={() => {
-                if (window.innerWidth <= 500) {
-                  handleVideoClick();
-                }
-              }}
-            />
-            <button
-              className={`like-button ${likes[index] ? "liked" : ""}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleLike(index);
-              }}
-            >
-              {likes[index] ? "Liked" : "Like"}
-            </button>
+            <div className="iframe-container">
+              <iframe
+                title={`video-${index}`}
+                src={url}
+                frameBorder="0"
+                allow="autoplay"
+                className="react-player"
+                onClick={handleVideoClick}
+              ></iframe>
+              <button
+                className={`like-button ${likes[index] ? "liked" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleLike(index);
+                }}
+              >
+                {likes[index] ? "Liked" : "Like"}
+              </button>
+            </div>
           </div>
         ))}
       </div>
