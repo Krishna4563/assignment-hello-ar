@@ -72,7 +72,8 @@ const Home = () => {
                 title={`video-${index}`}
                 src={url}
                 frameBorder="0"
-                autoplay={playing}
+                autoplay="autoplay" // Add autoplay attribute here
+                {...(index === currentVideoIndex && { autoplay: "autoplay" })}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 className="react-player"
                 onClick={handleVideoClick}
