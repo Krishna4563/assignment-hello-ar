@@ -85,34 +85,35 @@ const Home = () => {
               >
                 {likes[index] ? "Liked" : "Like"}
               </button>
+              <div className="controls">
+                <button
+                  className="left-prev-btn"
+                  onClick={() =>
+                    setCurrentVideoIndex(
+                      currentVideoIndex === 0
+                        ? videoUrls.length - 1
+                        : currentVideoIndex - 1
+                    )
+                  }
+                >
+                  Previous
+                </button>
+                <button
+                  className="right-next-btn"
+                  onClick={() =>
+                    setCurrentVideoIndex(
+                      currentVideoIndex === videoUrls.length - 1
+                        ? 0
+                        : currentVideoIndex + 1
+                    )
+                  }
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="controls">
-        <button
-          onClick={() =>
-            setCurrentVideoIndex(
-              currentVideoIndex === 0
-                ? videoUrls.length - 1
-                : currentVideoIndex - 1
-            )
-          }
-        >
-          Previous
-        </button>
-        <button
-          onClick={() =>
-            setCurrentVideoIndex(
-              currentVideoIndex === videoUrls.length - 1
-                ? 0
-                : currentVideoIndex + 1
-            )
-          }
-        >
-          Next
-        </button>
       </div>
 
       <div className="scroll-buttons">
