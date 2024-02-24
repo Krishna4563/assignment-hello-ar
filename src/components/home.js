@@ -72,7 +72,8 @@ const Home = () => {
                 title={`video-${index}`}
                 src={url}
                 frameBorder="0"
-                allow="autoplay"
+                autoplay={playing}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 className="react-player"
                 onClick={handleVideoClick}
               ></iframe>
