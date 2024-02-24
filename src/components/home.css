@@ -42,7 +42,7 @@
   }
 
   .controls {
-    margin: 0;
+    display: none;
   }
 
   .scroll-buttons {

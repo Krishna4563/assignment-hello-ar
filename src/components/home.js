@@ -103,7 +103,7 @@ const Home = () => {
 
       <div className="scroll-buttons">
         <button onClick={() => scrollToVideo(0)}>Up</button>
-        <button onClick={() => scrollToVideo(videoUrls.length - 1)}>
+        <button onClick={() => scrollToVideo(currentVideoIndex + 1)}>
           Down
         </button>
       </div>
