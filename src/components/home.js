@@ -76,7 +76,6 @@ const Home = () => {
           </button>
         </div>
 
-        {/* Render videos */}
         {videoUrls.map((url, index) => (
           <div
             key={index}
