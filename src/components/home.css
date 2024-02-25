@@ -17,7 +17,7 @@
   flex: 0 0 auto;
   margin: 0 10px;
   transition: transform 0.3s ease;
-  width: 100%; /* Adjusted width */
+  width: 100%;
   height: 75vh;
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative; /* Ensure the iframe is positioned relatively for absolute positioning of the like button */
+  position: relative;
 }
 
 .controls {
@@ -107,20 +107,20 @@
 
   .video-carousel {
     flex-direction: column;
-    height: 100%; /* Change height to auto */
+    height: 100%;
   }
 
   .video-item {
     margin: 0;
     width: 100%;
     position: relative;
-    height: auto; /* Change height to auto */
+    height: auto;
   }
 
   .like-button {
     position: absolute;
-    top: 8px; /* Adjust top position as needed */
-    right: 5px; /* Adjust right position as needed */
+    top: 8px;
+    right: 5px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -134,8 +134,7 @@
   .iframe-container {
     border: 1px solid red;
     width: 100%;
-    height: 100vh; /* 16:9 aspect ratio for responsive videos */
-    /* You can adjust padding-top to maintain aspect ratio if needed */
+    height: 100vh;
   }
 
   .iframe-container iframe {
@@ -164,7 +163,6 @@
   }
 
   .scroll-buttons {
-    /* Updated positioning and alignment */
     justify-content: space-around;
     flex-direction: column;
     top: 3%;
@@ -179,11 +177,13 @@
   }
 
   .scroll-buttons button {
-    /* Adjusted button styling */
     padding: 10px 40px;
     pointer-events: visible;
     z-index: 1000;
     border: 3px solid black;
+    background-color: #000;
+    color: white;
+    font-weight: bold;
     opacity: 0.5;
   }
 

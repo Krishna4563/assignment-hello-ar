@@ -3,11 +3,10 @@ import "./home.css";
 
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [playing, setPlaying] = useState(true); // Auto play the active video
+  const [playing, setPlaying] = useState(true);
   const [likes, setLikes] = useState(Array(videoUrls.length).fill(false));
 
   useEffect(() => {
-    // Auto play the first video when the component mounts
     setPlaying(true);
   }, []);
 
@@ -40,16 +39,8 @@ const Home = () => {
   }, [currentVideoIndex]);
 
   const handleVideoClick = () => {
-    setPlaying(!playing); // Toggle play/pause
+    setPlaying(!playing);
   };
-
-  // const scrollToVideo = (index) => {
-  //   const videoItem = document.getElementById(`video-item-${index}`);
-  //   if (videoItem) {
-  //     videoItem.scrollIntoView({ behavior: "smooth", block: "center" });
-  //     setCurrentVideoIndex(index);
-  //   }
-  // };
 
   const toggleLike = (index) => {
     setLikes((prevLikes) => {
@@ -76,7 +67,7 @@ const Home = () => {
                 title={`video-${index}`}
                 src={url}
                 frameBorder="0"
-                autoplay="autoplay" // Add autoplay attribute here
+                autoplay="autoplay"
                 {...(index === currentVideoIndex && { autoplay: "autoplay" })}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 className="react-player"
