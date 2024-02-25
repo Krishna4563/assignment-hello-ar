@@ -125,6 +125,7 @@ const Home = () => {
 
         <div className="scroll-buttons">
           <button
+            className="scroll-up"
             onClick={() =>
               setCurrentVideoIndex(
                 currentVideoIndex === 0
@@ -136,6 +137,7 @@ const Home = () => {
             Up
           </button>
           <button
+            className="scroll-down"
             onClick={() =>
               setCurrentVideoIndex(
                 currentVideoIndex === videoUrls.length - 1
