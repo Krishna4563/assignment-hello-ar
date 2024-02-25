@@ -92,6 +92,14 @@
   left: 19%;
 }
 
+.controls button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 4px;
+}
+
 .scroll-buttons {
   display: none;
 }
@@ -178,13 +186,13 @@
   }
 
   .scroll-buttons button {
-    padding: 10px 40px;
     pointer-events: visible;
     z-index: 1000;
-    border: 3px solid black;
     background-color: #000;
     color: white;
     font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 4px;
     opacity: 0.5;
   }
 
