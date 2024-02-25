@@ -6,10 +6,6 @@ const Home = () => {
   const [likes, setLikes] = useState(Array(videoUrls.length).fill(false));
 
   useEffect(() => {
-    // Any initialization logic can be placed here
-  }, []);
-
-  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "ArrowLeft" && currentVideoIndex > 0) {
         setCurrentVideoIndex((prevIndex) => prevIndex - 1);
@@ -48,7 +44,6 @@ const Home = () => {
   return (
     <section className="section">
       <div className="video-carousel">
-        {/* Controls for navigating to previous and next videos */}
         <div className="controls">
           <button
             className="left-prev-btn"
