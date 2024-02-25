@@ -3,11 +3,10 @@ import "./home.css";
 
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
   const [likes, setLikes] = useState(Array(videoUrls.length).fill(false));
 
   useEffect(() => {
-    setPlaying(true);
+    // Any initialization logic can be placed here
   }, []);
 
   useEffect(() => {
@@ -38,10 +37,6 @@ const Home = () => {
     }
   }, [currentVideoIndex]);
 
-  const handleVideoClick = () => {
-    setPlaying(!playing);
-  };
-
   const toggleLike = (index) => {
     setLikes((prevLikes) => {
       const newLikes = [...prevLikes];
@@ -53,49 +48,7 @@ const Home = () => {
   return (
     <section className="section">
       <div className="video-carousel">
-        {videoUrls.map((url, index) => (
-          <div
-            key={index}
-            id={`video-item-${index}`}
-            className={`video-item ${
-              index === currentVideoIndex ? "active" : ""
-            }`}
-            onClick={() => setCurrentVideoIndex(index)}
-          >
-            <div className="iframe-container">
-              <iframe
-                title={`video-${index}`}
-                src={url}
-                frameBorder="0"
-                autoplay="autoplay"
-                {...(index === currentVideoIndex && { autoplay: "autoplay" })}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                className="react-player"
-                onClick={handleVideoClick}
-              ></iframe>
-              <button
-                className={`like-button ${likes[index] ? "liked" : ""}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleLike(index);
-                }}
-              >
-                <svg
-                  class="filled"
-                  height="32"
-                  width="32"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 0H24V24H0z" fill="none"></path>
-                  <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
-                </svg>
-                {/* {likes[index] ? "Liked" : "Like"} */}
-              </button>
-            </div>
-          </div>
-        ))}
-
+        {/* Controls for navigating to previous and next videos */}
         <div className="controls">
           <button
             className="left-prev-btn"
@@ -123,32 +76,47 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="scroll-buttons">
-          <button
-            className="scroll-up"
-            onClick={() =>
-              setCurrentVideoIndex(
-                currentVideoIndex === 0
-                  ? videoUrls.length - 1
-                  : currentVideoIndex - 1
-              )
-            }
+        {/* Render videos */}
+        {videoUrls.map((url, index) => (
+          <div
+            key={index}
+            id={`video-item-${index}`}
+            className={`video-item ${
+              index === currentVideoIndex ? "active" : ""
+            }`}
+            onClick={() => setCurrentVideoIndex(index)}
           >
-            Up
-          </button>
-          <button
-            className="scroll-down"
-            onClick={() =>
-              setCurrentVideoIndex(
-                currentVideoIndex === videoUrls.length - 1
-                  ? 0
-                  : currentVideoIndex + 1
-              )
-            }
-          >
-            Down
-          </button>
-        </div>
+            <div className="iframe-container">
+              <iframe
+                title={`video-${index}`}
+                src={url}
+                frameBorder="0"
+                autoplay={index === currentVideoIndex ? "autoplay" : ""}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                className="react-player"
+              ></iframe>
+              <button
+                className={`like-button ${likes[index] ? "liked" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleLike(index);
+                }}
+              >
+                <svg
+                  class="filled"
+                  height="32"
+                  width="32"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0H24V24H0z" fill="none"></path>
+                  <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
+                </svg>
+                {/* {likes[index] ? "Liked" : "Like"} */}
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -22,8 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: center;
-  align-items: center;
 }
 
 .like-button {
@@ -69,6 +67,7 @@
 .like-button.liked svg {
   fill: #f00;
 }
+
 .iframe-container {
   position: relative;
   width: fit-content;
@@ -102,12 +101,40 @@
 }
 
 .scroll-buttons {
-  display: none;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  z-index: 1000;
+  pointer-events: all;
 }
 
-/* .react-player {
-  border: 1px solid black;
-} */
+.scroll-up {
+  position: absolute;
+  top: 6%;
+  pointer-events: all;
+}
+
+.scroll-down {
+  position: absolute;
+  top: 85%;
+  pointer-events: all;
+}
+
+.scroll-buttons button {
+  pointer-events: visible;
+  z-index: 1000;
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 4px;
+  opacity: 0.5;
+}
 
 @media screen and (max-width: 381px) {
   .section {
@@ -138,20 +165,21 @@
     color: #000;
     font-weight: bold;
     transition: color 0.3s ease;
-    z-index: 10000;
+    z-index: 2;
   }
 
   .iframe-container {
     width: 100%;
     height: 100vh;
+    z-index: 3000;
   }
 
   .iframe-container iframe {
     position: absolute;
-
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 3000;
   }
 
   .like-button.liked {
@@ -172,29 +200,19 @@
   }
 
   .scroll-buttons {
-    flex-direction: column;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    /* Display property changed to flex */
     display: flex;
-    margin: auto;
-    z-index: 1000;
-    pointer-events: all;
   }
 
   .scroll-up {
     position: absolute;
     top: 6%;
-
     pointer-events: all;
   }
 
   .scroll-down {
     position: absolute;
     top: 85%;
-
     pointer-events: all;
   }
 
@@ -207,6 +225,7 @@
     padding: 10px 40px;
     border-radius: 4px;
     opacity: 0.5;
+    z-index: 1;
   }
 
   .controls {
@@ -243,24 +262,21 @@
     color: #000;
     font-weight: bold;
     transition: color 0.3s ease;
-    z-index: 10000;
-  }
-
-  .like-button:hover {
-    transform: scale(1.3);
+    z-index: 2;
   }
 
   .iframe-container {
     width: 100%;
     height: 100vh;
+    z-index: 3000;
   }
 
   .iframe-container iframe {
     position: absolute;
-
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 3000;
   }
 
   .like-button.liked {
@@ -272,7 +288,7 @@
   }
 
   .like-button:hover {
-    transform: scale(1.17);
+    transform: scale(1.3);
   }
 
   .like-button svg {
@@ -281,29 +297,19 @@
   }
 
   .scroll-buttons {
-    flex-direction: column;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    /* Display property changed to flex */
     display: flex;
-    margin: auto;
-    z-index: 1000;
-    pointer-events: all;
   }
 
   .scroll-up {
     position: absolute;
     top: 13%;
-
     pointer-events: all;
   }
 
   .scroll-down {
     position: absolute;
     top: 80%;
-
     pointer-events: all;
   }
 
@@ -316,6 +322,7 @@
     padding: 10px 40px;
     border-radius: 4px;
     opacity: 0.5;
+    z-index: 1;
   }
 
   .controls {
