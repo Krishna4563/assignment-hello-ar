@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The app is deployed in vercel.
+Demo link - https://hello-ar-assignment-gules.vercel.app
+
 ## Available Scripts
 
 In the project directory, you can run:
