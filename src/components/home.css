@@ -184,6 +184,9 @@
     pointer-events: visible;
     z-index: 1000;
     border: 3px solid black;
+    background-color: #000;
+    color: white;
+    font-weight: bold;
     opacity: 0.5;
   }
 
