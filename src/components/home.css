@@ -108,7 +108,7 @@
   border: 1px solid black;
 } */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 381px) {
   .section {
     margin: 0;
   }
@@ -128,8 +128,101 @@
 
   .like-button {
     position: absolute;
-    top: 8px;
-    right: 5px;
+    top: 15px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    z-index: 1;
+  }
+
+  .iframe-container {
+    border: 1px solid red;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .like-button.liked {
+    color: #f00;
+  }
+
+  .like-button.liked svg {
+    fill: #f00;
+  }
+
+  .like-button:hover {
+    transform: scale(1.17);
+  }
+
+  .like-button svg {
+    fill: white;
+    transition: opacity 10ms ease-in-out;
+  }
+
+  .scroll-buttons {
+    justify-content: space-around;
+    flex-direction: column;
+    top: 3%;
+
+    height: 100%;
+    position: fixed;
+    right: 30%;
+
+    display: flex;
+    z-index: 1000;
+    pointer-events: all;
+  }
+
+  .scroll-buttons button {
+    pointer-events: visible;
+    z-index: 1000;
+    background-color: #000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 4px;
+    opacity: 0.5;
+  }
+
+  .controls {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 382px) and (max-width: 768px) {
+  .section {
+    margin: 0;
+  }
+
+  .video-carousel {
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+  }
+
+  .video-item {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .like-button {
+    position: absolute;
+    top: 98px;
+    right: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
