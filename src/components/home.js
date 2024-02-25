@@ -43,9 +43,13 @@ const Home = () => {
     setPlaying(!playing); // Toggle play/pause
   };
 
-  const scrollToVideo = (index) => {
-    setCurrentVideoIndex(index);
-  };
+  // const scrollToVideo = (index) => {
+  //   const videoItem = document.getElementById(`video-item-${index}`);
+  //   if (videoItem) {
+  //     videoItem.scrollIntoView({ behavior: "smooth", block: "center" });
+  //     setCurrentVideoIndex(index);
+  //   }
+  // };
 
   const toggleLike = (index) => {
     setLikes((prevLikes) => {
@@ -85,7 +89,17 @@ const Home = () => {
                   toggleLike(index);
                 }}
               >
-                {likes[index] ? "Liked" : "Like"}
+                <svg
+                  class="filled"
+                  height="32"
+                  width="32"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0H24V24H0z" fill="none"></path>
+                  <path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path>
+                </svg>
+                {/* {likes[index] ? "Liked" : "Like"} */}
               </button>
             </div>
           </div>
@@ -117,31 +131,31 @@ const Home = () => {
             Next
           </button>
         </div>
-      </div>
 
-      <div className="scroll-buttons">
-        <button
-          onClick={() =>
-            scrollToVideo(
-              currentVideoIndex === 0
-                ? videoUrls.length - 1
-                : currentVideoIndex - 1
-            )
-          }
-        >
-          Up
-        </button>
-        <button
-          onClick={() =>
-            scrollToVideo(
-              currentVideoIndex === videoUrls.length - 1
-                ? 0
-                : currentVideoIndex + 1
-            )
-          }
-        >
-          Down
-        </button>
+        <div className="scroll-buttons">
+          <button
+            onClick={() =>
+              setCurrentVideoIndex(
+                currentVideoIndex === 0
+                  ? videoUrls.length - 1
+                  : currentVideoIndex - 1
+              )
+            }
+          >
+            Up
+          </button>
+          <button
+            onClick={() =>
+              setCurrentVideoIndex(
+                currentVideoIndex === videoUrls.length - 1
+                  ? 0
+                  : currentVideoIndex + 1
+              )
+            }
+          >
+            Down
+          </button>
+        </div>
       </div>
     </section>
   );
