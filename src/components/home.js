@@ -155,14 +155,14 @@ const Home = () => {
 };
 
 const videoUrls = [
+  "https://player.vimeo.com/video/353394440",
   "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
-  "https://player.vimeo.com/video/453600755",
+  "https://player.vimeo.com/video/454811664",
+  "https://player.vimeo.com/video/592765562",
+  "https://player.vimeo.com/video/473384846",
+  "https://player.vimeo.com/video/453256886",
+  "https://player.vimeo.com/video/513077157",
+  "https://player.vimeo.com/video/526013050",
 ];
 
 export default Home;
