@@ -165,21 +165,7 @@
     color: #000;
     font-weight: bold;
     transition: color 0.3s ease;
-    z-index: 2;
-  }
-
-  .iframe-container {
-    width: 100%;
-    height: 100vh;
-    z-index: 3000;
-  }
-
-  .iframe-container iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 3000;
+    z-index: 4000;
   }
 
   .like-button.liked {
@@ -199,33 +185,23 @@
     transition: opacity 10ms ease-in-out;
   }
 
+  .iframe-container {
+    width: 100%;
+    height: 100vh;
+    z-index: 3000;
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 3000;
+  }
+
   .scroll-buttons {
     /* Display property changed to flex */
-    display: flex;
-  }
-
-  .scroll-up {
-    position: absolute;
-    top: 6%;
-    pointer-events: all;
-  }
-
-  .scroll-down {
-    position: absolute;
-    top: 85%;
-    pointer-events: all;
-  }
-
-  .scroll-buttons button {
-    pointer-events: visible;
-    z-index: 1000;
-    background-color: #000;
-    color: white;
-    font-weight: bold;
-    padding: 10px 40px;
-    border-radius: 4px;
-    opacity: 0.5;
-    z-index: 1;
+    display: none;
   }
 
   .controls {
@@ -257,12 +233,28 @@
     right: 10px;
     background-color: transparent;
     border: none;
-    cursor: pointer;
     outline: none;
     color: #000;
     font-weight: bold;
     transition: color 0.3s ease;
-    z-index: 2;
+    z-index: 4000;
+  }
+
+  .like-button.liked {
+    color: #f00;
+  }
+
+  .like-button.liked svg {
+    fill: #f00;
+  }
+
+  .like-button:hover {
+    transform: scale(1.17);
+  }
+
+  .like-button svg {
+    fill: white;
+    transition: opacity 10ms ease-in-out;
   }
 
   .iframe-container {
@@ -279,50 +271,8 @@
     z-index: 3000;
   }
 
-  .like-button.liked {
-    color: #f00;
-  }
-
-  .like-button.liked svg {
-    fill: #f00;
-  }
-
-  .like-button:hover {
-    transform: scale(1.3);
-  }
-
-  .like-button svg {
-    fill: white;
-    transition: opacity 10ms ease-in-out;
-  }
-
   .scroll-buttons {
-    /* Display property changed to flex */
-    display: flex;
-  }
-
-  .scroll-up {
-    position: absolute;
-    top: 13%;
-    pointer-events: all;
-  }
-
-  .scroll-down {
-    position: absolute;
-    top: 80%;
-    pointer-events: all;
-  }
-
-  .scroll-buttons button {
-    pointer-events: visible;
-    z-index: 1000;
-    background-color: #000;
-    color: white;
-    font-weight: bold;
-    padding: 10px 40px;
-    border-radius: 4px;
-    opacity: 0.5;
-    z-index: 1;
+    display: none;
   }
 
   .controls {
